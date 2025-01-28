@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root{
+
+    --LTVery-Light-Gray: hsl(0, 0%, 98%);
+    --LTVery-Light-Grayish-Blue: hsl(236, 33%, 92%);
+    --LTLight-Grayish-Blue: hsl(233, 11%, 84%);
+    --LTDark-Grayish-Blue: hsl(236, 9%, 61%);
+    --LTVery-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+    --DTVery-Dark-Blue: hsl(235, 21%, 11%);
+    --DTVery-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+    --DTLight-Grayish-Blue: hsl(234, 39%, 85%);
+    --DTLight-Grayish-Blue: hsl(236, 33%, 92%);
+    --DTDark-Grayish-Blue: hsl(234, 11%, 52%);
+    --DTVery-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+    --DTVery-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.todo-container{
+    background: var(--LTVery-Light-Gray);
+    height: 100vh;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.todo-container-dark{
+    background: var(--DTVery-Dark-Blue);
+}
+
+.todo-general{
+    font-family: 'Josefin Sans';
+    font-size: 1.8rem;
+    height: 100vh;
+
+
+    padding:4rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    max-width: 65rem;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.todo-background{
+    max-height: 30rem;
+    position: relative;
+
+    
+}
+
+.background-mobile{
+    width: 100%;
+    object-fit: cover;
+    max-height: 20rem
+}
+
+.background-desktop, .hidden{
+    display: none;
+}
+
+.title{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.title__text{
+    color: var(--LTVery-Light-Gray);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 9px;
+
+    font-size: 2.5rem;
+}
+
+.title__icon{
+    cursor: pointer;
+}
+
+.newtask{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+
+
+
+
+.newtask__text{
+    border: none;
+    background: inherit; 
+    width: 100%;  
+    color: var(--LTDark-Grayish-Blue);
+    font-family: 'Josefin Sans';
+    font-size: 1.6rem;
+
+
+}
+
+.newtask__text::placeholder, .allTasks-lineBottom{
+    color: var(--LTDark-Grayish-Blue);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+
+    font-family: 'Josefin Sans';
+    font-size: 1.4rem;
+}
+
+.newtask__text::placeholder{
+    font-size: 1.6rem;
+}
+
+.newtask__text-dark:focus{
+    color: var(--LTDark-Grayish-Blue);
+}
+
+.newtask__text:focus{
+    outline: none;
+    font-family: 'Josefin Sans';
+    font-size: 1.6rem;
+}
+
+.taskRelated{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.allTasks{
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.allTasks-task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 300;
+    width: 100%;
+    padding: 1.5rem;
+
+    border-bottom: 1px solid var(--LTVery-Light-Grayish-Blue) ;
+    cursor: pointer;
+}
+
+.allTasks-task-dark{
+    border-bottom: 1px solid var(--DTVery-Dark-Grayish-Blue) ;
+
+}
+
+.task__input, .task__input-dark{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-color: transparent;
+    border: 1px solid var(--LTLight-Grayish-Blue);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.task__input-dark{
+    border: 1px solid var(--DTDark-Grayish-Blue);
+}
+
+.task__input:hover{
+    border: 1px solid #537ED4;
+}
+.task__input-dark:hover{
+    border: 1px solid #7392cf;
+}
+
+
+
+
+
+.task__input-checked{
+    display: none;
+}
+
+.span-input{
+    display: none;
+}
+
+.span-input-checked{
+    background:linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) ;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    padding: 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+}
+
+.task-left{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+
+}
+
+.task__text-dark {
+    color: var(--DTLight-Grayish-Blue);
+}
+
+.task__text-checked{
+    text-decoration: line-through;
+    text-decoration-color: var(--LTDark-Grayish-Blue);
+    color: var(--LTDark-Grayish-Blue)
+}
+
+.task__text-checked-dark{
+    text-decoration: line-through;
+    text-decoration-color: var(--LTDark-Grayish-Blue);
+    color: var(--LTDark-Grayish-Blue)
+}
+
+.allTasks-task img{
+    height: 1.1rem;
+    text-align: right;
+}
+
+.allTasks-lineBottom{
+    display: flex;
+    justify-content:space-between;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.lineBottom__clear{
+    cursor: pointer;
+}
+
+.status{
+    background: #fff;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.status__all{
+    color: var(--LTVery-Dark-Grayish-Blue);
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+
+
+.dragDrop{
+    width: 100%;
+    text-align: center;
+    color: var(--LTDark-Grayish-Blue);
+    font-size: 1.5rem;
+    margin-top: 9rem;
+}
+
+.newtask-dark, .allTasks-dark, .status-dark{
+    background-color: var(--DTVery-Dark-Desaturated-Blue);
+}
+
+.status__all-dark{
+    color: var(--DTDark-Grayish-Blue)
+}
+
+.active-filter{
+    color: #537ED4;
+}
+
+.task__text,
+.task__text-checked {
+    line-height: normal; /* Ou defina um valor fixo que funcione bem para o layout */
+}
+
+.label-radio{
+    height: 2rem;
+}
+
+
+
+@media (min-width:850px){
+
+    
+
+    .background-desktop{
+        display: block;
+        max-height: 23rem;
+        width: 100vw;
+    }
+
+    .background-mobile, .hidden{
+        display: none;
+    }
+
+    .todo-general{
+        top: 20px;
+    }
+
+    .title__text{
+        font-size: 4rem;
+    }
+
+    .task-left span{
+        font-size: 2.2rem;
+    }
+
+
+
+    .allTasks-lineBottom{
+        align-items: center;
+    }
+
+    .lineBottom__clear, .lineBottom__itensLefting{
+        min-width: 12rem;
+    }
+
+    .status{
+        position:static;
+        transform: none;
+        padding: 0;
+        
+    }
+}
